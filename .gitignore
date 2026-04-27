@@ -4,27 +4,24 @@ out/
 !**/src/test/**/out/
 .kotlin
 
-### Eclipse ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-bin/
-!**/src/main/**/bin/
-!**/src/test/**/bin/
+# Compiled Java
+*.class
+*.jar
+build/
+target/
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
+# IDE
+.idea/
+*.iml
+*.eclipse
+*.project
+*.classpath
 
-### VS Code ###
-.vscode/
+# JDBC driver local (no subir el .jar al repo)
+lib/mysql-connector-*.jar
 
-### Mac OS ###
-.DS_Store
+# Sistema operativo
+Thumbs.db
+
+# Logs
+*.log
