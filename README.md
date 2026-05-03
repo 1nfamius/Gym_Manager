@@ -148,8 +148,3 @@ GymManager/
 | Sistemas Informáticos (0483) | `/docs/sistemas/` |
 | Entornos de Desarrollo (0487) | Este repositorio completo |
 | Empleabilidad (1709) | `/docs/empleabilidad/` |
-
-## Autor
-
-**Tu nombre** — 1º DAM · Prometeo by The Power  
-[GitHub](https://github.com/1nfamius)
