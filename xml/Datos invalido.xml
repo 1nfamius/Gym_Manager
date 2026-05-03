@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  Este XML contiene errores INTENCIONADOS para demostrar que el XSD valida correctamente.
+  Errores introducidos:
+    1. email sin formato válido (falta el @)
+    2. telefono con letras en lugar de 9 dígitos
+    3. aforoMaximo fuera de rango (0, mínimo permitido es 1)
+    4. estado de membresía no permitido ("pendiente" no existe en la enumeración)
+    5. duracionMinutos fuera de rango (200, máximo es 180)
+-->
+<gymmanager xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:noNamespaceSchemaLocation="esquema.xsd">
+
+  <exportacion>
+    <fecha>2024-06-01</fecha>
+    <version>1.0</version>
+    <descripcion>XML con errores para demostrar validación XSD</descripcion>
+  </exportacion>
+
+  <socios>
+    <socio id="1">
+      <nombre>Test</nombre>
+      <apellidos>Usuario Error</apellidos>
+      <email>email-sin-arroba-invalido</email>         <!-- ERROR 1: email sin @ -->
+      <telefono>61ABC0001</telefono>                    <!-- ERROR 2: teléfono con letras -->
+      <fechaNacimiento>1990-01-01</fechaNacimiento>
+      <fechaAlta>2024-01-01</fechaAlta>
+      <activo>true</activo>
+      <membresia>
+        <tipo>Básica mensual</tipo>
+        <fechaInicio>2024-01-01</fechaInicio>
+        <fechaFin>2024-02-01</fechaFin>
+        <estado>pendiente</estado>                     <!-- ERROR 4: estado no permitido -->
+      </membresia>
+    </socio>
+  </socios>
+
+  <actividades>
+    <actividad id="1">
+      <nombre>Actividad errónea</nombre>
+      <descripcion>Tiene aforo 0 y duración 200</descripcion>
+      <aforoMaximo>0</aforoMaximo>                      <!-- ERROR 3: aforo mínimo es 1 -->
+      <duracionMinutos>200</duracionMinutos>            <!-- ERROR 5: máximo es 180 -->
+      <instructor>
+        <nombre>Test</nombre>
+        <apellidos>Instructor</apellidos>
+        <especialidad>Ninguna</especialidad>
+      </instructor>
+      <activa>true</activa>
+    </actividad>
+  </actividades>
+
+  <reservas/>
+
+</gymmanager>
