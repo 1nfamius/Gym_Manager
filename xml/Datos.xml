@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gymmanager xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:noNamespaceSchemaLocation="esquema.xsd">
+
+  <exportacion>
+    <fecha>2024-06-01</fecha>
+    <version>1.0</version>
+    <descripcion>Exportación de datos del sistema GymManager</descripcion>
+  </exportacion>
+
+  <!--SOCIOS-->
+  <socios>
+
+    <socio id="1">
+      <nombre>Ana</nombre>
+      <apellidos>Martínez López</apellidos>
+      <email>ana.martinez@email.com</email>
+      <telefono>611000001</telefono>
+      <fechaNacimiento>1990-05-14</fechaNacimiento>
+      <fechaAlta>2024-01-10</fechaAlta>
+      <activo>true</activo>
+      <membresia>
+        <tipo>Premium semestral</tipo>
+        <fechaInicio>2024-04-10</fechaInicio>
+        <fechaFin>2024-10-10</fechaFin>
+        <estado>activa</estado>
+      </membresia>
+    </socio>
+
+    <socio id="2">
+      <nombre>Luis</nombre>
+      <apellidos>García Hernández</apellidos>
+      <email>luis.garcia@email.com</email>
+      <telefono>611000002</telefono>
+      <fechaNacimiento>1985-11-22</fechaNacimiento>
+      <fechaAlta>2024-01-15</fechaAlta>
+      <activo>true</activo>
+      <membresia>
+        <tipo>Anual completa</tipo>
+        <fechaInicio>2024-02-15</fechaInicio>
+        <fechaFin>2025-02-15</fechaFin>
+        <estado>activa</estado>
+      </membresia>
+    </socio>
+
+    <socio id="3">
+      <nombre>Elena</nombre>
+      <apellidos>Rodríguez Pérez</apellidos>
+      <email>elena.rodriguez@email.com</email>
+      <telefono>611000003</telefono>
+      <fechaNacimiento>1995-03-08</fechaNacimiento>
+      <fechaAlta>2024-02-01</fechaAlta>
+      <activo>true</activo>
+      <membresia>
+        <tipo>Estándar trimestral</tipo>
+        <fechaInicio>2024-02-01</fechaInicio>
+        <fechaFin>2024-05-01</fechaFin>
+        <estado>activa</estado>
+      </membresia>
+    </socio>
+
+    <socio id="4">
+      <nombre>Miguel</nombre>
+      <apellidos>Sánchez Torres</apellidos>
+      <email>miguel.sanchez@email.com</email>
+      <telefono>611000004</telefono>
+      <fechaNacimiento>1988-07-30</fechaNacimiento>
+      <fechaAlta>2024-02-10</fechaAlta>
+      <activo>true</activo>
+      <membresia>
+        <tipo>Estándar trimestral</tipo>
+        <fechaInicio>2024-04-10</fechaInicio>
+        <fechaFin>2024-07-10</fechaFin>
+        <estado>activa</estado>
+      </membresia>
+    </socio>
+
+    <socio id="5">
+      <nombre>Sofía</nombre>
+      <apellidos>López Díaz</apellidos>
+      <email>sofia.lopez@email.com</email>
+      <telefono>611000005</telefono>
+      <fechaNacimiento>1992-12-19</fechaNacimiento>
+      <fechaAlta>2024-03-05</fechaAlta>
+      <activo>true</activo>
+      <membresia>
+        <tipo>Premium semestral</tipo>
+        <fechaInicio>2024-03-05</fechaInicio>
+        <fechaFin>2024-09-05</fechaFin>
+        <estado>activa</estado>
+      </membresia>
+    </socio>
+
+  </socios>
+
+  <!--ACTIVIDADES-->
+  <actividades>
+
+    <actividad id="1">
+      <nombre>Crossfit matutino</nombre>
+      <descripcion>Entrenamiento funcional de alta intensidad</descripcion>
+      <aforoMaximo>15</aforoMaximo>
+      <duracionMinutos>60</duracionMinutos>
+      <instructor>
+        <nombre>Carlos</nombre>
+        <apellidos>Ruiz Martínez</apellidos>
+        <especialidad>Crossfit y musculación</especialidad>
+      </instructor>
+      <activa>true</activa>
+    </actividad>
+
+    <actividad id="2">
+      <nombre>Yoga relajante</nombre>
+      <descripcion>Sesión de yoga para todos los niveles</descripcion>
+      <aforoMaximo>20</aforoMaximo>
+      <duracionMinutos>75</duracionMinutos>
+      <instructor>
+        <nombre>Laura</nombre>
+        <apellidos>Gómez Sánchez</apellidos>
+        <especialidad>Yoga y pilates</especialidad>
+      </instructor>
+      <activa>true</activa>
+    </actividad>
+
+    <actividad id="3">
+      <nombre>Spinning express</nombre>
+      <descripcion>Clase de ciclismo indoor de alta intensidad</descripcion>
+      <aforoMaximo>25</aforoMaximo>
+      <duracionMinutos>45</duracionMinutos>
+      <instructor>
+        <nombre>Javier</nombre>
+        <apellidos>López Torres</apellidos>
+        <especialidad>Spinning y cardio</especialidad>
+      </instructor>
+      <activa>true</activa>
+    </actividad>
+
+    <actividad id="4">
+      <nombre>Zumba fitness</nombre>
+      <descripcion>Baile aeróbico con ritmos latinoamericanos</descripcion>
+      <aforoMaximo>30</aforoMaximo>
+      <duracionMinutos>60</duracionMinutos>
+      <instructor>
+        <nombre>María</nombre>
+        <apellidos>Fernández Díaz</apellidos>
+        <especialidad>Zumba y baile fitness</especialidad>
+      </instructor>
+      <activa>true</activa>
+    </actividad>
+
+    <actividad id="5">
+      <nombre>Boxeo iniciación</nombre>
+      <descripcion>Técnica y fundamentos del boxeo</descripcion>
+      <aforoMaximo>12</aforoMaximo>
+      <duracionMinutos>60</duracionMinutos>
+      <instructor>
+        <nombre>Pedro</nombre>
+        <apellidos>Alonso García</apellidos>
+        <especialidad>Boxeo y artes marciales</especialidad>
+      </instructor>
+      <activa>true</activa>
+    </actividad>
+
+  </actividades>
+
+  <!--RESERVAS DEL DÍA-->
+  <reservas>
+
+    <reserva id="1">
+      <idSocio>1</idSocio>
+      <idSesion>1</idSesion>
+      <actividad>Crossfit matutino</actividad>
+      <fechaHoraSesion>2024-06-03T07:00:00</fechaHoraSesion>
+      <fechaReserva>2024-06-01T10:00:00</fechaReserva>
+      <estado>confirmada</estado>
+    </reserva>
+
+    <reserva id="2">
+      <idSocio>2</idSocio>
+      <idSesion>1</idSesion>
+      <actividad>Crossfit matutino</actividad>
+      <fechaHoraSesion>2024-06-03T07:00:00</fechaHoraSesion>
+      <fechaReserva>2024-06-01T10:15:00</fechaReserva>
+      <estado>confirmada</estado>
+    </reserva>
+
+    <reserva id="3">
+      <idSocio>3</idSocio>
+      <idSesion>2</idSesion>
+      <actividad>Yoga relajante</actividad>
+      <fechaHoraSesion>2024-06-03T09:00:00</fechaHoraSesion>
+      <fechaReserva>2024-06-01T11:00:00</fechaReserva>
+      <estado>confirmada</estado>
+    </reserva>
+
+    <reserva id="4">
+      <idSocio>4</idSocio>
+      <idSesion>3</idSesion>
+      <actividad>Spinning express</actividad>
+      <fechaHoraSesion>2024-06-03T18:30:00</fechaHoraSesion>
+      <fechaReserva>2024-06-01T12:00:00</fechaReserva>
+      <estado>confirmada</estado>
+    </reserva>
+
+    <reserva id="5">
+      <idSocio>5</idSocio>
+      <idSesion>3</idSesion>
+      <actividad>Spinning express</actividad>
+      <fechaHoraSesion>2024-06-03T18:30:00</fechaHoraSesion>
+      <fechaReserva>2024-06-01T12:30:00</fechaReserva>
+      <estado>cancelada</estado>
+    </reserva>
+
+  </reservas>
+
+</gymmanager>

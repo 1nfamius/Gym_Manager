@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!--Elemento raíz-->
+  <xs:element name="gymmanager">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="exportacion" type="tipoExportacion"/>
+        <xs:element name="socios"      type="tipoSocios"/>
+        <xs:element name="actividades" type="tipoActividades"/>
+        <xs:element name="reservas"    type="tipoReservas"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!--Bloque de metadatos de exportación-->
+  <xs:complexType name="tipoExportacion">
+    <xs:sequence>
+      <xs:element name="fecha"       type="xs:date"/>
+      <xs:element name="version"     type="tipoVersion"/>
+      <xs:element name="descripcion" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!--Versión con patrón N.N-->
+  <xs:simpleType name="tipoVersion">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="\d+\.\d+"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!--SOCIOS-->
+  <xs:complexType name="tipoSocios">
+    <xs:sequence>
+      <xs:element name="socio" type="tipoSocio" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoSocio">
+    <xs:sequence>
+      <xs:element name="nombre"           type="tipoNombre"/>
+      <xs:element name="apellidos"        type="tipoApellidos"/>
+      <xs:element name="email"            type="tipoEmail"/>
+      <xs:element name="telefono"         type="tipoTelefono"/>
+      <xs:element name="fechaNacimiento"  type="xs:date"/>
+      <xs:element name="fechaAlta"        type="xs:date"/>
+      <xs:element name="activo"           type="xs:boolean"/>
+      <xs:element name="membresia"        type="tipoMembresia"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:positiveInteger" use="required"/>
+  </xs:complexType>
+
+  <!--Membresía embebida en el socio-->
+  <xs:complexType name="tipoMembresia">
+    <xs:sequence>
+      <xs:element name="tipo"         type="tipoNombreMembresia"/>
+      <xs:element name="fechaInicio"  type="xs:date"/>
+      <xs:element name="fechaFin"     type="xs:date"/>
+      <xs:element name="estado"       type="tipoEstadoMembresia"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!--Tipos permitidos de membresía-->
+  <xs:simpleType name="tipoNombreMembresia">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Básica mensual"/>
+      <xs:enumeration value="Estándar trimestral"/>
+      <xs:enumeration value="Premium semestral"/>
+      <xs:enumeration value="Anual completa"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!--Estados permitidos de membresía-->
+  <xs:simpleType name="tipoEstadoMembresia">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="activa"/>
+      <xs:enumeration value="expirada"/>
+      <xs:enumeration value="cancelada"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!--ACTIVIDADES-->
+  <xs:complexType name="tipoActividades">
+    <xs:sequence>
+      <xs:element name="actividad" type="tipoActividad" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoActividad">
+    <xs:sequence>
+      <xs:element name="nombre"           type="tipoNombre"/>
+      <xs:element name="descripcion"      type="xs:string"/>
+      <xs:element name="aforoMaximo"      type="tipoAforo"/>
+      <xs:element name="duracionMinutos"  type="tipoDuracion"/>
+      <xs:element name="instructor"       type="tipoInstructor"/>
+      <xs:element name="activa"           type="xs:boolean"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:positiveInteger" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="tipoInstructor">
+    <xs:sequence>
+      <xs:element name="nombre"       type="tipoNombre"/>
+      <xs:element name="apellidos"    type="tipoApellidos"/>
+      <xs:element name="especialidad" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!--Aforo: entre 1 y 100 personas-->
+  <xs:simpleType name="tipoAforo">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="1"/>
+      <xs:maxInclusive value="100"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!--Duración: entre 15 y 180 minutos-->
+  <xs:simpleType name="tipoDuracion">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="15"/>
+      <xs:maxInclusive value="180"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!--RESERVAS-->
+  <xs:complexType name="tipoReservas">
+    <xs:sequence>
+      <xs:element name="reserva" type="tipoReserva" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoReserva">
+    <xs:sequence>
+      <xs:element name="idSocio"          type="xs:positiveInteger"/>
+      <xs:element name="idSesion"         type="xs:positiveInteger"/>
+      <xs:element name="actividad"        type="xs:string"/>
+      <xs:element name="fechaHoraSesion"  type="xs:dateTime"/>
+      <xs:element name="fechaReserva"     type="xs:dateTime"/>
+      <xs:element name="estado"           type="tipoEstadoReserva"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:positiveInteger" use="required"/>
+  </xs:complexType>
+
+  <!-- Estados permitidos de reserva -->
+  <xs:simpleType name="tipoEstadoReserva">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="confirmada"/>
+      <xs:enumeration value="cancelada"/>
+      <xs:enumeration value="pendiente"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!--Tipos reutilizables con restricciones-->
+
+  <!-- Nombre: entre 2 y 50 caracteres -->
+  <xs:simpleType name="tipoNombre">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="2"/>
+      <xs:maxLength value="50"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Apellidos: entre 2 y 100 caracteres -->
+  <xs:simpleType name="tipoApellidos">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="2"/>
+      <xs:maxLength value="100"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Email: patrón básico usuario@dominio.ext -->
+  <xs:simpleType name="tipoEmail">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Teléfono: 9 dígitos -->
+  <xs:simpleType name="tipoTelefono">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{9}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>
